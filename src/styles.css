@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --background-base: #121212;
+  --background-highlight: #1a1a1a;
+  --green: #1ed760;
+  --text-base: #fff;
+  --text-base-dark: #000;
+}
+
+* {
+  font-family: 'Roboto Flex', sans-serif;
+}
+
+body {
+  background-color: var(--background-base); /* For browsers that do not support gradients */
+  background: linear-gradient(0deg, var(--background-base), var(--background-highlight)  80%) no-repeat;
+  height: 100vh;
+}
