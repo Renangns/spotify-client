@@ -12,13 +12,13 @@ import { addAuth } from './../../state/auth/auth.action';
   styleUrls: ['./callback.component.css'],
 })
 export class CallbackComponent implements OnInit {
-
   constructor(
     private store: Store<{ auth: Auth }>,
     private route: ActivatedRoute,
-    private router: Router,@Inject(PLATFORM_ID)
+    private router: Router,
+    @Inject(PLATFORM_ID)
     private platformId: string
-    ) {}
+  ) {}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -26,11 +26,11 @@ export class CallbackComponent implements OnInit {
         const response = new URLSearchParams(fragment?.toString());
         const access_token = response.get('access_token') || '';
         const token_type = response.get('token_type') || '';
-        const expires_in = parseInt(response.get('expires_in') || '', 10) ;
+        const expires_in = parseInt(response.get('expires_in') || '', 10);
         const state = response.get('state') || '';
         this.create({ access_token, token_type, expires_in, state });
         this.router.navigate(['/home']);
-      })
+      });
     }
   }
 
