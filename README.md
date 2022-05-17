@@ -1,4 +1,4 @@
-![CI](https://github.com/Renangns/spotify-client/workflows/main/badge.svg)
+[![CI](https://github.com/Renangns/spotify-client/actions/workflows/main.yml/badge.svg)](https://github.com/Renangns/spotify-client/actions/workflows/main.yml)
 
 # AngularSsr
 
