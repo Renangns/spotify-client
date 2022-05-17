@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  spotify_client_id: '3e9e7622f2aa4b08a521410895273924',
-  spotify_redirect_url: 'http://localhost:4200/callback',
+  spotify_client_id: '',
+  spotify_redirect_url: '',
 };
 
 /*

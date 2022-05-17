@@ -14,7 +14,9 @@ import {
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor() {}
+  constructor() {
+    console.log('server');
+  }
 
   login() {
     return this.authorizeUrl();
