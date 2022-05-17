@@ -61,20 +61,6 @@ describe('CallbackComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // TOOD: ver pq os testes aync não estão funcionando
-  it('should call create', fakeAsync(() => {
-    spyOn(component, 'create');
-    component.ngOnInit();
-
-    fixture.detectChanges();
-
-    fixture.whenStable().then(() => {
-      expect(component.create).toHaveBeenCalledWith(authObject);
-    });
-
-    tick();
-  }));
-
   it('should navigate to home', fakeAsync(() => {
     let router = {
       navigate: jasmine.createSpy('navigate'),

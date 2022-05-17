@@ -24,17 +24,22 @@ export class CallbackComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.route.fragment.subscribe((fragment) => {
         const response = new URLSearchParams(fragment?.toString());
-        const access_token = response.get('access_token') || '';
-        const token_type = response.get('token_type') || '';
-        const expires_in = parseInt(response.get('expires_in') || '', 10);
-        const state = response.get('state') || '';
-        this.create({ access_token, token_type, expires_in, state });
+        const auth = this.parse(response);
+        this.create(auth);
         this.router.navigate(['/home']);
       });
     }
   }
 
-  create(auth: Auth) {
+  private parse(response: URLSearchParams): Auth {
+    const access_token = response.get('access_token') || '';
+    const token_type = response.get('token_type') || '';
+    const expires_in = parseInt(response.get('expires_in') || '', 10);
+    const state = response.get('state') || '';
+    return { access_token, token_type, expires_in, state };
+  }
+
+  private create(auth: Auth) {
     this.store.dispatch(addAuth({ auth }));
   }
 }

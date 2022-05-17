@@ -19,10 +19,10 @@ export class LoginComponent {
   }
 
   login() {
-    return this.authorizeUrl();
+    return this.buildUrl();
   }
 
-  private authorizeUrl() {
+  private buildUrl() {
     const client_id = environment.spotify_client_id;
     const redirect_uri = environment.spotify_redirect_url;
 
