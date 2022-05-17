@@ -1,3 +1,5 @@
+![CI](https://github.com/Renangns/spotify-client/workflows/main/badge.svg)
+
 # AngularSsr
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
