@@ -1,9 +1,10 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { Auth } from './../../models/auth';
+import { AuthService } from './../../shared/services/auth.service';
 import { addAuth } from './../../state/auth/auth.action';
 
 @Component({
@@ -15,9 +16,9 @@ export class CallbackComponent implements OnInit {
   constructor(
     private store: Store<{ auth: Auth }>,
     private route: ActivatedRoute,
-    private router: Router,
     @Inject(PLATFORM_ID)
-    private platformId: string
+    private platformId: string,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +27,8 @@ export class CallbackComponent implements OnInit {
         const response = new URLSearchParams(fragment?.toString());
         const auth = this.parse(response);
         this.create(auth);
-        this.router.navigate(['/home']);
+        this.authService.save(auth);
+        window.location.href = '/home';
       });
     }
   }
