@@ -16,4 +16,4 @@ USER node
 EXPOSE 4200
 EXPOSE 9876
 
-CMD ["npm", "run", "dev:ssr"]
+CMD ["npm", "start"]
