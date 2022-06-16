@@ -1,1 +1,2 @@
 <h1 style="color: white;">{{user?.display_name}}</h1>
+<img *ngIf="user?.image" img [src]="user?.image | safeUrl: 'url'" />
